@@ -43,7 +43,7 @@ The ```path: ':app'``` used whenever the URL hit, it will redirect to LayoutComp
   <!-- Micro Frontend Here -->
 </div>
 ```
-* Create service file and add the logic for dynamically adding the script tag for Micro-Frontend's main.js. 
+* Create service file and add the logic for dynamically adding the script tag for Micro-Frontend's main.js. So if any component want to load any Micro-Frontend on demand, we can call the function.
 ``` 
 load(item: any) {
     const content = document.getElementById('content')!;
@@ -69,15 +69,5 @@ load(item: any) {
       };
       document.body.appendChild(script);
     }
-}
-```
-* So if any component want to load any Micro-Frontend on demand, we can call the function.
-``` 
-constructor(
-    private contentService: ContentService
-) { }
-
-public navigate(url: string) {
-    this.contentService.navigate(url);
 }
 ```
