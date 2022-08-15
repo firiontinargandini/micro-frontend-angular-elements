@@ -5,7 +5,7 @@ This is a Micro-Frontend application that loaded on demand.
 ## Implementation
 * Create new Angular project
 ```
-ng new content-a
+ng new content-b
 ```
 * Install dependency that needed for Micro-Frontend
 ```
@@ -18,8 +18,6 @@ ng add @angular/elements
 @NgModule({
   declarations: [
     AppComponent,
-    PageAComponent,
-    PageBComponent
   ],
   imports: [
     BrowserModule,
@@ -33,7 +31,7 @@ ng add @angular/elements
 ```
 constructor(injector: Injector) {
     const element = createCustomElement(AppComponent, { injector });
-    customElements.define('content-a', element);
+    customElements.define('content-b', element);
 }
 
 ngDoBootstrap() {}
