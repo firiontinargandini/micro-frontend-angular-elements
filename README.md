@@ -6,4 +6,4 @@ This repository consists of the following projects:
 * Content A: Micro-Frontend application that loaded on demand
 * Content B: Another Micro-Frontend appliaction that loaded on demand
 
-Details about the implementation can be found in each repository's README
+Details about the implementation can be found in each repository's README.
