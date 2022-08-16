@@ -14,7 +14,7 @@ export class LayoutComponent {
     private router: Router,
     private contentService: ContentService
   ) {
-    router.events.subscribe((route) => {
+    this.router.events.subscribe((route) => {
       if (route instanceof NavigationEnd) {
         if (route.url === '/') return;
 

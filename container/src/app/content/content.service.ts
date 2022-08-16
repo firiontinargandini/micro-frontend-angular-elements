@@ -1,5 +1,4 @@
 import { Injectable } from '@angular/core';
-import { Router } from '@angular/router';
 
 const config = [
   {
@@ -19,15 +18,19 @@ const config = [
 })
 export class ContentService {
 
-  constructor(
-    private router: Router
-  ) { }
+  constructor() { }
 
   public navigate(url: string) {
-    const item = config.find(item => item.route === url);
+    let item = config.find(item => item.route === url);
 
-    if (!item) return;
-    this.load(item)
+    if (!item) {
+      const prefixUrl = url.split('/').slice(0, 2).join('/');
+      item = config.find(item => item.route === prefixUrl);
+
+      if (!item) return;
+    };
+
+    this.load(item);
   }
 
   public load(item: any) {

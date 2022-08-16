@@ -5,7 +5,8 @@ import { LayoutComponent } from './layout/layout.component';
 const routes: Routes = [
   { path: '', component: LayoutComponent },
   { path: ':app', component: LayoutComponent },
-  { path: ':app/:appName', component: LayoutComponent }
+  { path: ':app/:appName', component: LayoutComponent },
+  { path: '**', redirectTo: '' }
 ];
 
 @NgModule({
