@@ -21,10 +21,10 @@ import { PageBComponent } from './page-b/page-b.component';
   entryComponents: [AppComponent]
 })
 export class AppModule {
-  constructor(injector: Injector) {
-    const element = createCustomElement(AppComponent, { injector });
+  constructor(private injector: Injector) { }
+
+  ngDoBootstrap() {
+    const element = createCustomElement(AppComponent, { injector: this.injector });
     customElements.define('content-a', element);
   }
-
-  ngDoBootstrap() {}
 }
