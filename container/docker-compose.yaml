@@ -1,0 +1,23 @@
+version: '3'
+
+services:
+  container-app:
+    image: container-app
+    container_name: container-app
+    build: .
+    volumes:
+      - ./nginx:/etc/nginx/conf.d
+    ports:
+      - '80:80'
+  content-a:
+    image: content-a
+    container_name: content-a
+    build: ../content-a
+    ports:
+      - '9001:80'
+  content-b:
+    image: content-b
+    container_name: content-b
+    build: ../content-b
+    ports:
+      - '9002:80'

@@ -2,12 +2,12 @@ import { Injectable } from '@angular/core';
 
 const config = [
   {
-    src: 'assets/content-a/main.js',
+    src: 'a/main.js',
     element: 'content-a',
     route: '/content-a'
   },
   {
-    src: 'assets/content-b/main.js',
+    src: 'b/main.js',
     element: 'content-b',
     route: '/content-b'
   },
