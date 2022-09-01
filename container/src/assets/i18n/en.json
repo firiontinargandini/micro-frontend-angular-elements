@@ -1,0 +1,10 @@
+{
+  "title": "Welcome to Angular Micro-Frontend",
+  "sidebar": {
+    "contentA" : "Go To Content A",
+    "contentB": {
+      "moduleA": "Go To Content B (Module A)",
+      "moduleB": "Go To Content B (Module B)"
+    }
+  }
+}

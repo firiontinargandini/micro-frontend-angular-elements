@@ -1,6 +1,11 @@
 <div style="text-align: center;">
-  <h1>Welcome to Angular Micro-Frontend</h1>
+  <h1>{{ lang.title }}</h1>
 </div>
+<div class="row" style="text-align: center;">
+  <button (click)="changeLanguage('id')">Bahasa Indonesia</button>&nbsp;
+  <button (click)="changeLanguage('en')">English</button>
+</div>
+<br>
 <app-sidebar></app-sidebar>
 <div id="content" class="content">
   <!-- Micro Frontend Here -->

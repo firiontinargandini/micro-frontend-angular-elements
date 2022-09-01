@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import { ContentService } from '../content/content.service';
+import { LocalizationService } from '../shared/services/localization/localization.service';
+import { MicrofrontendService } from '../shared/services/microfrontend/microfrontend.service';
 
 @Component({
   selector: 'app-sidebar',
@@ -7,12 +8,16 @@ import { ContentService } from '../content/content.service';
   styleUrls: ['./sidebar.component.scss']
 })
 export class SidebarComponent {
+  lang: any;
 
   constructor(
-    private contentService: ContentService
-  ) { }
+    private microfrontendService: MicrofrontendService,
+    private localizationService: LocalizationService
+  ) {
+    this.lang = this.localizationService.translateLanguage();
+  }
 
   public navigate(url: string) {
-    this.contentService.navigate(url);
+    this.microfrontendService.navigate(url);
   }
 }

@@ -1,4 +1,5 @@
 <div class="row" style="text-align: center;">
-  <a routerLink="/content-a" (click)="navigate('/content-a')" style="text-decoration: underline; cursor: pointer;">Go To Content A</a>&nbsp;
-  <a routerLink="/content-b" (click)="navigate('/content-b')" style="text-decoration: underline; cursor: pointer;">Go To Content B</a>
+  <a routerLink="/content-a" (click)="navigate('/content-a')" style="text-decoration: underline; cursor: pointer;">{{ lang.sidebar.contentA }}</a>&nbsp;
+  <a routerLink="/module-a" (click)="navigate('/module-a')" style="text-decoration: underline; cursor: pointer;">{{ lang.sidebar.contentB.moduleA }}</a>&nbsp;
+  <a routerLink="/module-b" (click)="navigate('/module-b')" style="text-decoration: underline; cursor: pointer;">{{ lang.sidebar.contentB.moduleB }}</a>
 </div>
