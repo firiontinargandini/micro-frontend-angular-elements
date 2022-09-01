@@ -1,0 +1,13 @@
+{
+  "title": "Welcome to Content A",
+  "sidebar": {
+    "pageA": "Page A",
+    "pageB": "Page B"
+  },
+  "pageA": {
+    "title": "This is Page A on Content A"
+  },
+  "pageB": {
+    "title": "This is Page B on Content A"
+  }
+}
