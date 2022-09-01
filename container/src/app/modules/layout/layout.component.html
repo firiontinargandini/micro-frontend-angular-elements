@@ -1,0 +1,20 @@
+
+<div class="d-flex" id="wrapper" style="overflow-x: hidden;">
+  <!-- Sidebar-->
+  <app-sidebar></app-sidebar>
+
+  <div id="page-content-wrapper">
+    <!-- Navbar -->
+    <app-navbar></app-navbar>
+
+    <!-- Page content-->
+    <div class="container-fluid" style="padding: 10px;">
+      <div *ngIf="url === '/'">
+        <h1>{{ lang.title }}</h1>
+      </div>
+
+      <div id="content" class="content">
+        <!-- Micro Frontend Here -->
+      </div>
+    </div>
+</div>

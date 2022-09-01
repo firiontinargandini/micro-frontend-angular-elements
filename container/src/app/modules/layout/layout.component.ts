@@ -1,8 +1,8 @@
 import { Component, OnDestroy } from '@angular/core';
 import { NavigationEnd, Router } from '@angular/router';
 import { Subscription } from 'rxjs';
-import { MicrofrontendService } from '../shared/services/microfrontend/microfrontend.service';
-import { LocalizationService } from '../shared/services/localization/localization.service';
+import { MicrofrontendService } from '../../shared/services/microfrontend/microfrontend.service';
+import { LocalizationService } from '../../shared/services/localization/localization.service';
 
 @Component({
   selector: 'app-layout',
@@ -22,8 +22,9 @@ export class LayoutComponent implements OnDestroy {
   ) {
     const sub = this.router.events.subscribe((route) => {
       if (route instanceof NavigationEnd) {
-        if (route.url === '/') return;
+        this.url = route.url;
 
+        if (route.url === '/') return;
         this.navigate(route.url);
       }
     });
@@ -39,9 +40,5 @@ export class LayoutComponent implements OnDestroy {
 
   private navigate(url: string) {
     this.microfrontendService.navigate(url);
-  }
-
-  public changeLanguage(lang: string) {
-    this.localizationService.onLanguageChange(lang);
   }
 }

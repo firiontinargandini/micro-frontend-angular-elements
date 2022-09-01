@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import { LocalizationService } from '../shared/services/localization/localization.service';
-import { MicrofrontendService } from '../shared/services/microfrontend/microfrontend.service';
+import { LocalizationService } from '../../shared/services/localization/localization.service';
+import { MicrofrontendService } from '../../shared/services/microfrontend/microfrontend.service';
 
 @Component({
   selector: 'app-sidebar',
