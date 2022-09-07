@@ -1,0 +1,13 @@
+{
+  "title": "Selamat Datang di Content A",
+  "sidebar": {
+    "pageA": "Halaman A",
+    "pageB": "Halaman B"
+  },
+  "pageA": {
+    "title": "Ini adalah Halaman A dalam Content A"
+  },
+  "pageB": {
+    "title": "Ini adalah Halaman B dalam Content A"
+  }
+}

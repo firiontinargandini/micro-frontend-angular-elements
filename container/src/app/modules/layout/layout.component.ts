@@ -1,4 +1,4 @@
-import { Component, OnDestroy } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { NavigationEnd, Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { MicrofrontendService } from '../../shared/services/microfrontend/microfrontend.service';
@@ -9,7 +9,7 @@ import { LocalizationService } from '../../shared/services/localization/localiza
   templateUrl: './layout.component.html',
   styleUrls: ['./layout.component.scss']
 })
-export class LayoutComponent implements OnDestroy {
+export class LayoutComponent implements OnInit, OnDestroy {
   private subs: Subscription[] = [];
   public url!: string;
 
@@ -32,6 +32,10 @@ export class LayoutComponent implements OnDestroy {
     this.subs.push(sub);
 
     this.lang = this.localizationService.translateLanguage();
+  }
+
+  ngOnInit(): void {
+    this.subs = [];
   }
 
   ngOnDestroy(): void {
