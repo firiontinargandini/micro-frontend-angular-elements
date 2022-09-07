@@ -17,13 +17,12 @@ import { AppComponent } from './app.component';
   entryComponents: [AppComponent]
 })
 export class AppModule {
-  constructor(private injector: Injector) {
-  }
+  constructor(private injector: Injector) { }
 
   ngDoBootstrap() {
-    const element = createCustomElement(AppComponent, {
-      injector: this.injector,
-    });
-    customElements.define('content-b', element);
+    if (!customElements.get('content-b')) {
+      const element = createCustomElement(AppComponent, { injector: this.injector });
+      customElements.define('content-b', element);
+    }
   }
 }
