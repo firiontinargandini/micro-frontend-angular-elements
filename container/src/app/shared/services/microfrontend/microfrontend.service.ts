@@ -104,11 +104,11 @@ export class MicrofrontendService implements OnInit, OnDestroy {
 
         // Adding stylesheet
         if (!document.getElementById('micro_frontend_css')) {
-          this.registerStyle(item);
+          this.registerStyle(item, res);
         } else {
           const script = document.getElementById('micro_frontend_css')!;
           head.removeChild(script);
-          this.registerStyle(item);
+          this.registerStyle(item, res);
         }
       }
     );
@@ -123,9 +123,9 @@ export class MicrofrontendService implements OnInit, OnDestroy {
     document.head.appendChild(script);
   }
 
-  public registerStyle(item: any) {
+  public registerStyle(item: any, res: any) {
     const link = document.createElement('link');
-    link.setAttribute('href', `${item.src}/styles.css`);
+    link.setAttribute('href', `${item.src}/${res['styles.css']}`);
     link.setAttribute('rel', 'stylesheet');
     link.setAttribute('id', 'micro_frontend_css');
     document.head.appendChild(link);
