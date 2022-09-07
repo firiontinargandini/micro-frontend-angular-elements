@@ -18,8 +18,14 @@
       "prefix": "app",
       "architect": {
         "build": {
-          "builder": "ngx-build-plus:browser",
+          "builder": "@angular-builders/custom-webpack:browser",
           "options": {
+            "customWebpackConfig": {
+              "path": "./webpack.config.js",
+              "mergeRules": {
+                "externals": "replace"
+              }
+            },
             "outputPath": "dist/content-b",
             "index": "src/index.html",
             "main": "src/main.ts",
@@ -69,7 +75,7 @@
           "defaultConfiguration": "production"
         },
         "serve": {
-          "builder": "ngx-build-plus:dev-server",
+          "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
               "browserTarget": "content-b:build:production"
@@ -81,13 +87,13 @@
           "defaultConfiguration": "development"
         },
         "extract-i18n": {
-          "builder": "ngx-build-plus:extract-i18n",
+          "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
             "browserTarget": "content-b:build"
           }
         },
         "test": {
-          "builder": "ngx-build-plus:karma",
+          "builder": "@angular-devkit/build-angular:karma",
           "options": {
             "main": "src/test.ts",
             "polyfills": "src/polyfills.ts",

@@ -2,7 +2,7 @@
 FROM node:alpine AS build-app
 WORKDIR /app
 COPY . .
-RUN npm ci && node ./node_modules/@angular/cli/bin/ng build --output-hashing none --single-bundle true
+RUN npm ci && node ./node_modules/@angular/cli/bin/ng build --output-hashing=all
 
 # Stage 2
 FROM nginx:alpine
