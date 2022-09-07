@@ -24,7 +24,9 @@ export class AppModule {
   constructor(private injector: Injector) { }
 
   ngDoBootstrap() {
-    const element = createCustomElement(AppComponent, { injector: this.injector });
-    customElements.define('content-a', element);
+    if (!customElements.get('content-a')) {
+      const element = createCustomElement(AppComponent, { injector: this.injector });
+      customElements.define('content-a', element);
+    }
   }
 }
