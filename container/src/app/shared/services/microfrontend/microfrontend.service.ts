@@ -7,6 +7,7 @@ const config = [
     src: 'assets/content-a',
     element: 'content-a',
     route: '/content-a',
+    isChild: false
   },
   {
     src: 'assets/content-b',
@@ -56,12 +57,13 @@ export class MicrofrontendService implements OnInit, OnDestroy {
   }
 
   public load(item: any) {
+    // Get file manifest.json from item sources
     const sub = this.http
       .get(`${item.src}/manifest.json`)
       .subscribe((res: any) => {
         if (!res) return;
 
-        // Create custom element
+        // Prevent to load two custom element on DOM
         const content = document.getElementById('content')!;
         if (content.hasChildNodes()) {
           if (content.firstChild) {
@@ -69,6 +71,7 @@ export class MicrofrontendService implements OnInit, OnDestroy {
           }
         }
 
+        // Create custom element
         const element = document.createElement(item.element);
         element.id = 'micro_frontend_custom_element';
         content.appendChild(element);
