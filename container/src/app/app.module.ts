@@ -8,13 +8,17 @@ import { LayoutComponent } from './modules/layout/layout.component';
 import { SidebarComponent } from './modules/sidebar/sidebar.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { NavbarComponent } from './modules/navbar/navbar.component';
+import { ConfirmationModalComponent } from './shared/confirmation-modal/confirmation-modal.component';
+import { InformationModalComponent } from './shared/information-modal/information-modal.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     SidebarComponent,
     LayoutComponent,
-    NavbarComponent
+    NavbarComponent,
+    ConfirmationModalComponent,
+    InformationModalComponent
   ],
   imports: [
     BrowserModule,

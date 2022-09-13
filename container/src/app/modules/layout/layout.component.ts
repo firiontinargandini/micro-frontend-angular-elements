@@ -3,6 +3,7 @@ import { NavigationEnd, Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { MicrofrontendService } from '../../shared/services/microfrontend/microfrontend.service';
 import { LocalizationService } from '../../shared/services/localization/localization.service';
+import { SharedModalService } from 'src/app/shared/services/shared-modal/shared-modal.service';
 
 @Component({
   selector: 'app-layout',
@@ -18,7 +19,8 @@ export class LayoutComponent implements OnInit, OnDestroy {
   constructor(
     private router: Router,
     private microfrontendService: MicrofrontendService,
-    private localizationService: LocalizationService
+    private localizationService: LocalizationService,
+    private sharedModalService: SharedModalService
   ) {
     const sub = this.router.events.subscribe((route) => {
       if (route instanceof NavigationEnd) {
@@ -36,6 +38,10 @@ export class LayoutComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     this.subs = [];
+
+    window.addEventListener('modal', (customEvent: any) => {
+      this.sharedModalService.openModal(customEvent.detail);
+    });
   }
 
   ngOnDestroy(): void {

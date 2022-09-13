@@ -1,9 +1,24 @@
 <div>
   <h2>{{ lang.title }}</h2>
 </div>
-<div class="row">
-  <a routerLink="/content-a/page-a">{{ lang.sidebar.pageA }}</a>&nbsp;
-  <a routerLink="/content-a/page-b">{{ lang.sidebar.pageB }}</a>
+<div class="d-flex">
+  <div>
+    <button (click)="openModal('confirmation', 'Confirmation', 'Are you sure you want to do action?')" class="btn btn-primary">Open Modal Confirmation from Parent</button>&nbsp;
+  </div>
+  <div>
+    <button (click)="openModal('information', 'Information', 'This is information')" class="btn btn-primary">Open Modal Information from Parent</button>
+  </div>
+</div>
+<div *ngIf="isReceiveResponse">
+  <span>{{ action }}</span>
+</div>
+<div class="d-flex">
+  <div>
+    <a routerLink="/content-a/page-a">{{ lang.sidebar.pageA }}</a>&nbsp;
+  </div>
+  <div>
+    <a routerLink="/content-a/page-b">{{ lang.sidebar.pageB }}</a>
+  </div>
 </div>
 
 <router-outlet></router-outlet>
